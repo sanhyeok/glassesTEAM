@@ -1,89 +1,91 @@
-﻿using System;
+/*
+*  프로그램명 : 성적관리 프로그램
+*  작성자 : 4TEAM   
+*  작성일 : 2019-10-02
+*  프로그램 설명 : 학생의 성적을 관리하는 프로그램
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO; //파일입출력 네임스페이스
 
-namespace Sort
+namespace StudentManagement
 {
-    class Program
+    public class Student
     {
-        struct Sample                       //학생 정보 구조체입니다. (임시)
-        {
-            public int key;                 //등수를 매길 자료가 될 변수. 총합 점수로 하시면 됩니다.
-            public int rank;                //등수
-        }
+        // 학생 정보 : 이름 학번 국어 영어 수학 C# 총점 평균 등수
+        private string Name;
+        private int StudentID;
+        private double Korean;
+        private double English;
+        private double Math;
+        private double Cs;
+        private double Totalscore;
+        private double Average;
+        private int Rank;
 
-        static void PrintStudentList(Sample[] StudentList)                      //학생 정보 출력함수 (임시)
+
+        public class Menu { } //메뉴창 (case 문)
+        public class Input { } //입력받기
+        public class Output //출력하기
         {
-            for (int i = 0; i < StudentList.Length; i++)
+            static void GetRank(Student[] StudentList)                           //등수를 매기는 함수
             {
-                Console.WriteLine("점수 : {0}, 등수 : {1}", StudentList[i].key, StudentList[i].rank);
-            }
-        }
-
-        static void PrintStudent(Sample StudentList)                      //학생 정보 출력함수 (임시)
-        {
-            Console.WriteLine("점수 : {0}, 등수 : {1}", StudentList.key, StudentList.rank);
-        }
-        
-        //#############################################################################################
-        //여기부터 맡은 부분입니다.
-
-        static void GetRank(Sample[] StudentList)                           //등수를 매기는 함수
-        {
-            int[] TempArray = new int[StudentList.Length];
-            for (int i = 0; i < StudentList.Length; i++)
-            {
-                TempArray[i] = StudentList[i].key;
-            }
-
-            Array.Sort(TempArray);
-
-            for (int i = 0; i < StudentList.Length; i++)
-            {
-                for (int j = 0; j < StudentList.Length; j++)
+                double[] TempArray = new double[StudentList.Length];
+                for (int i = 0; i < StudentList.Length; i++)
                 {
-                    if (StudentList[i].key == TempArray[j])
+                    TempArray[i] = StudentList[i].Totalscore;
+                }
+
+                Array.Sort(TempArray);
+
+                for (int i = 0; i < StudentList.Length; i++)
+                {
+                    for (int j = 0; j < StudentList.Length; j++)
                     {
-                        StudentList[i].rank = StudentList.Length - j;
-                        break;
+                        if (StudentList[i].Totalscore == TempArray[j])
+                        {
+                            StudentList[i].Rank = StudentList.Length - j;
+                            break;
+                        }
                     }
                 }
             }
         }
-
-        static void PrintScholarshipStudent(Sample[] StudentList)           //장학생 출력 함수
+        public class Grade { } //성적계산하기
+        public class Add { } //Info추가
+        public class Insert { } //Info삽입
+        public class Delete { } //Info삭제
+        public class Scholarship //장학생
         {
-            Console.WriteLine("==============================================================");
-            Console.WriteLine("장학생 목록");
-            Console.WriteLine("==============================================================");
-            for (int i = 1; i <= 3; i++)
+            static void PrintScholarshipStudent(Student[] StudentList)           //장학생 출력 함수
             {
-                for (int j = 0; j < StudentList.Length; j++)
+                Console.WriteLine("==============================================================");
+                Console.WriteLine("                         장학생 목록                          ");
+                Console.WriteLine("==============================================================");
+                for (int i = 1; i <= 3; i++)
                 {
-                    if (StudentList[j].rank == i)
+                    for (int j = 0; j < StudentList.Length; j++)
                     {
-                        PrintStudent(StudentList[j]);
-                        break;
+                        if (StudentList[j].Totalscore == i)
+                        {
+                            //Output.PrintStudent(StudentList[j]);              //이 부분 출력 부분에서 함수가 호출되어야 합니다.
+                            break;
+                        }
                     }
                 }
+                Console.WriteLine("==============================================================");
             }
-            Console.WriteLine("==============================================================");
         }
 
-        //##########################################################################################
-
-        static void Main(string[] args)                         //결과 확인용입니다.
+        public class Student_Management
         {
-            int[] Student = { 200, 220, 180, 320, 50 };
-            Sample[] StudentList = new Sample[5];
-            for (int i = 0; i < StudentList.Length; i++)
+            static void Main(string[] args)
             {
-                StudentList[i].key = Student[i];
+                
             }
-
-            GetRank(StudentList);
-
-            PrintStudentList(StudentList);
-
-            PrintScholarshipStudent(StudentList);
         }
     }
 }
