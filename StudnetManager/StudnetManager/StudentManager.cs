@@ -45,7 +45,7 @@ namespace StudnetManager
             st.Math = double.Parse(Console.ReadLine());
             Console.Write("c#:");
             st.Cs = double.Parse(Console.ReadLine());
-            GetAverage(st); 
+            GetAverage(st);
             GetTotalScore(st);
         }
         public void GetGrade(Student st)
@@ -95,22 +95,46 @@ namespace StudnetManager
         {
             st.Totalscore = st.Korean + st.Math + st.English + st.Cs;
         }
-
-        static void PrintScholarshipStudent(Student[] StudentList)           //장학생 출력 함수
+        public void GetRank(List<Student> StudentList)                           //등수를 매기는 함수
         {
+            int stdn = 0;
+            int TAN = 0;
+            foreach (var std in StudentList)
+            {
+                stdn += 1;
+            }
+            double[] TempArray = new double[stdn];
+            foreach (var std in StudentList)
+            {
+                TempArray[TAN] = std.Totalscore;
+                TAN += 1;
+            }
+            Array.Sort(TempArray);
+            Array.Reverse(TempArray);
+            foreach (var std in StudentList)
+            {
+                for (int p = 0; p < stdn; p++)
+                {
+                    if (std.Totalscore == TempArray[p])
+                    {
+                        std.Rank = p + 1;
+                    }
+                }
+            }
+        }
+        public void PrintScholarshipStudent(List<Student> StudentList)           //장학생 출력 함수
+        {
+            int stdn = 0;
+            foreach (var std in StudentList)
+            {
+                stdn += 1;
+            }
             Console.WriteLine("==============================================================");
             Console.WriteLine("                         장학생 목록                          ");
             Console.WriteLine("==============================================================");
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i <= stdn; i++)
             {
-                for (int j = 0; j < StudentList.Length; j++)
-                {
-                    if (StudentList[j].Totalscore == i)
-                    {
-                        //Output.PrintStudent(StudentList[j]);              //이 부분 출력 부분에서 함수가 호출되어야 합니다.
-                        break;
-                    }
-                }
+                Console.WriteLine(" {0}등 : {1}", i, StudentList.Find(x => x.Rank == i).Name);
             }
             Console.WriteLine("==============================================================");
         }
@@ -154,12 +178,21 @@ namespace StudnetManager
                 Console.WriteLine("먼저 정보를 입력해 주세요");
                 return false;
             }
-            
+
         }
-        public void test(int[] StudentList)
+        public Boolean InsertInfo(List<Student> StudentList, Student std, int index)
         {
-            Console.WriteLine(StudentList);
-            Console.WriteLine(StudentList[0]);
+            try
+            {
+                StudentList.Insert(index, std);
+                Console.WriteLine("삽입 완료하였습니다. ");
+                return true;
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("잘못된 인덱스 번호입니다.");
+                return false;
+            }
         }
     }
     public class MainApp
@@ -173,17 +206,17 @@ namespace StudnetManager
             string txtpath = "StudentInfo.txt";
             Student st = new Student();
             List<Student> studentList = new List<Student>();
-            Student[] studentList2 = new Student [10];
             Manager M = new Manager();
-
+            
 
             while (exit)
             {
                 Console.WriteLine("┌─────────────────────────┐");
-                Console.WriteLine("│ 1. 입력하기(자동추가)                            │");
+                Console.WriteLine("│ 1. 입력하기                                      │");
                 Console.WriteLine("│ 2. 출력하기                                      │");
                 Console.WriteLine("│ 3. 삭제하기                                      │");
-                Console.WriteLine("│ 4. 장학생                                        │");
+                Console.WriteLine("│ 4. 삽입하기                                      │");
+                Console.WriteLine("│ 5. 장학생                                        │");
                 Console.WriteLine("│ 5. 나가기                                        │");
                 Console.WriteLine("└─────────────────────────┘");
 
@@ -199,19 +232,9 @@ namespace StudnetManager
                         M.GetGrade(st);
                         M.GetTotalScore(st);
                         studentList.Add(new Student(){Name = st.Name,StudentID = st.StudentID,Korean = st.Korean,English = st.English, Math = st.Math,Cs = st.Cs,Grade = st.Grade,Totalscore = st.Totalscore,Average = st.Average,Rank=st.Rank});
-                        
-                        for (int i = 0; i <= people; i++)
-                        {
-                            studentList2 = studentList.ToArray();
-                            //Console.WriteLine(studentList2[i].Name);
-                        }
                         people += 1;
-                        Console.WriteLine(studentList2[0].Rank);
-                        //M.GetRank(studentList2);
                         break;
                     case 2:
-                        //Console.WriteLine(studentList2[0].Name + studentList2[1].Name);
-                        
                         foreach (var student in studentList)
                         {
                             Console.WriteLine("이름:" + student.Name + 
@@ -235,9 +258,26 @@ namespace StudnetManager
                         else 
                             continue;                        // 아니면 실패했다고 출력하고 다시 넘김
                         break;
-                    case 4:
+                    case 4: // 삽입
+                        Console.WriteLine("삽입할 학생의 정보를 입력해주세요.");
+                        M.Addinfo(st);
+                        M.GetAverage(st);
+                        M.GetGrade(st);
+                        M.GetTotalScore(st);
+                        Console.Write("삽입할 인덱스를 입력해주세요. : ");
+                        int index = int.Parse(Console.ReadLine());
+                        if (M.InsertInfo(studentList, st, index))
+                            people++;
+                        else
+                            continue;
                         break;
+
                     case 5:
+                        M.GetRank(studentList);
+                        M.PrintScholarshipStudent(studentList);
+
+                        break;
+                    case 6:
                         exit = false;
                         break;
                     default:
@@ -249,39 +289,3 @@ namespace StudnetManager
         }
     }
 }
-/*var list = List.Empty(new{
-               Name = default(string),
-               StudentID = default(int),
-               Korean = default(double),
-               English = default(double),
-               Math = default(double),
-               Cs = default(double),
-               Grade = default(double),
-               Totalscore = default(double),
-               Average = default(double),
-               Rank = default(int)
-            });*/
-
-/*studentList2[people].Name = st.Name;
-                        studentList2[people].StudentID = st.StudentID;
-                        studentList2[people].Korean = st.Korean;
-                        studentList2[people].English = st.English;
-                        studentList2[people].Math = st.Math;
-                        studentList2[people].Cs = st.Cs;
-                        studentList2[people].Grade = st.Grade;
-                        studentList2[people].Totalscore = st.Totalscore;
-                        studentList2[people].Average = st.Average;
-                        studentList2[people].Rank = st.Rank;*/
-/*for (int j = 0; j <= people; j++) 
-                        {
-                            Console.WriteLine("이름:" + studentList2[j].Name +
-                                    "학번:" + studentList2[j].StudentID +
-                                    "국어:" + studentList2[j].Korean +
-                                    "영어:" + studentList2[j].English +
-                                    "수학:" + studentList2[j].Math +
-                                    "씨샵:" + studentList2[j].Cs +
-                                    "학점:" + studentList2[j].Grade +
-                                    "총점:" + studentList2[j].Totalscore +
-                                    "평균:" + studentList2[j].Average +
-                                    "등수:" + studentList2[j].Rank);
-                        }*/
