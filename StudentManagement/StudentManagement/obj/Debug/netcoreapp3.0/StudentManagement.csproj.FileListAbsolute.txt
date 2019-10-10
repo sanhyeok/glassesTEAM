@@ -1,0 +1,11 @@
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.exe
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.deps.json
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.runtimeconfig.json
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.runtimeconfig.dev.json
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.dll
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\bin\Debug\netcoreapp3.0\StudentManagement.pdb
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\obj\Debug\netcoreapp3.0\StudentManagement.csprojAssemblyReference.cache
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\obj\Debug\netcoreapp3.0\StudentManagement.AssemblyInfoInputs.cache
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\obj\Debug\netcoreapp3.0\StudentManagement.AssemblyInfo.cs
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\obj\Debug\netcoreapp3.0\StudentManagement.dll
+E:\학교\2019년 2학기\HCI\Student_Management\StudentManagement\StudentManagement\obj\Debug\netcoreapp3.0\StudentManagement.pdb
