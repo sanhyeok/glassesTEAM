@@ -25,14 +25,14 @@ public class changesecen : MonoBehaviour
     }
     public void LoadScene(string name)
     {
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene(name);  // name에 해당하는 scene을 호출한다.
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-            LoadScene("test1");
-        if (Input.GetMouseButtonDown(1))
-            LoadScene("SampleScene");
+        if (Input.GetMouseButtonDown(0))  // 좌클릭을 입력받으면
+            LoadScene("test1");           // test1이라는 씬을 호출
+        if (Input.GetMouseButtonDown(1))  // 우클릭을 입력받으면
+            LoadScene("SampleScene");     // SampleScene을 
     }
 }
