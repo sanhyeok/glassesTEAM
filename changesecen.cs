@@ -8,8 +8,8 @@
 * 수정일 : 2019년 11월30일
 
 * 프로그램 설명 : 조건에 맞게 실행하고 있는 secen을 바꾼다.
-                 맵 이동에 사용.
-
+                  맵 이동에 사용.
+                  다른 씬에서도 사용가능하게 목적지(Dest) 오브젝트를 설정
 ***********************************/
 
 
@@ -20,22 +20,30 @@ using UnityEngine.SceneManagement;
 public class changesecen : MonoBehaviour
 {
     private int Scene_index = 0;
-    public List<GameObject> dest; // 목적지
+    private GameObject dest; // 목적지
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        Scene_index = SceneManager.GetActiveScene().buildIndex; // 실행중인 씬의 인덱스를 가져옴
+        dest = GameObject.Find("Dest"); // Dest라는 오브젝트를 찾는다.
+                                        // 다른 씬에서 오브젝트를 가져오지 못하기 때문에
+                                        // 같은 이름의 오브젝트를 만들어서 위치 가져오기
     }
-    public void LoadScene(int index)
+    
+    private void LoadScene(int index)
     {
         SceneManager.LoadScene(index);  // index에 해당하는 scene을 호출한다.
     }
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.transform.position, dest[Scene_index].transform.position) < 10)  // 목적지에 다다르면
-        {
-            Scene_index += 1;
+        if (Vector3.Distance(this.transform.position, dest.transform.position) < 10)  // 목적지에 다다르면
+        {   
+            if (Scene_index == 0)
+                Scene_index = 1;
+            else
+                Scene_index = 0;
             LoadScene(Scene_index);
-        }// 다음 인덱스의 씬으로 이동
+        }// 추후 메인에서 씬 빌드하고 다시 설정
     }
 }
