@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 제작 : 신동규
+ * 카메라를 움직이고 원하는 객체에 고정하는 코드입니다.
+ */
+
 public class CameraControllerScript : MonoBehaviour
 {
     Vector2 mouse_position;
