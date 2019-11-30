@@ -1,0 +1,30 @@
+/*
+ *  프로그램명 : 성적관리 프로그램
+ *  작성자 : 4TEAM   
+ *  작성일 : 2019-10-02
+ *  프로그램 설명 : 학생의 성적을 관리하는 프로그램
+ */
+
+
+        // 학생 정보 : 이름 학번 국어 영어 수학 C# 총점 평균 등수
+        private string Name;
+        private int StudentID;
+        private double Korean;
+        private double English;
+        private double Math;
+        private double Cs;
+        private double Totalscore;
+        private double Average;
+        private int Rank;
+
+        // 필요 기능 : 메뉴 입력 출력 성적계산 정보추가 정보삽입 정보삭제 장학생
+        public class Menu { } 
+        public class Input { } 
+        public class Output { } 
+        public class Grade { } 
+        public class Add { } 
+        public class Insert { } 
+        public class Delete { } 
+        public class Scholarship { } 
+
+        
