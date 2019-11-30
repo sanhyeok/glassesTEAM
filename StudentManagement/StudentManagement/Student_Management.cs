@@ -29,7 +29,9 @@ namespace StudentManagement
 
 
         public class Menu { } //메뉴창
-        public class Input { } //입력받기
+        public class Input { 
+
+        } //입력받기
         public class Output { } //출력하기
         public class Grade
         {
@@ -90,6 +92,55 @@ namespace StudentManagement
         {
             static void Main(string[] args)
             {
+                bool exit = true;
+                int menuselect;
+                string str;
+                string txtpath = "StudentInfo.txt";
+                Student[] student = new Student;
+
+                while (exit) 
+                {
+                    Console.WriteLine("┌─────────────────────────┐");
+                    Console.WriteLine("│ 1. 학생부 명단 확인하기                          │");
+                    Console.WriteLine("│ 2. 학생 추가하기                                 │");
+                    Console.WriteLine("│ 3. info 추가                                     │");
+                    Console.WriteLine("│ 4. info 삭제                                     │");
+                    Console.WriteLine("│ 5. 나가기                                        │");
+                    Console.WriteLine("└─────────────────────────┘");
+
+                    Console.Write("원하는 메뉴를 입력하세요 : ");
+                    str = Console.ReadLine();
+                    menuselect = int.Parse(str);
+
+                        switch (menuselect)
+                        {
+                            case 1:
+                                Console.WriteLine("Case 1");
+                                break;
+                            case 2:
+                            Console.Write("학생정보를 입력하세요 : ");
+                            str = Console.ReadLine();
+                            System.IO.File.AppendAllText(txtpath, str, Encoding.Default);
+                            break;
+                            case 3:
+                            Console.Write("추가정보를 입력하세요 : ");
+                            str = Console.ReadLine();
+                            str = str + "\n";
+                            System.IO.File.AppendAllText(txtpath, str, Encoding.Default);
+                            break;
+                            case 4:
+                                break;
+                            case 5:
+                                exit = false;
+                                break;
+                            default :
+                            Console.WriteLine("제대로입력해^^");
+                            break;
+
+
+                    
+                        }
+                }
 
             }
         }
