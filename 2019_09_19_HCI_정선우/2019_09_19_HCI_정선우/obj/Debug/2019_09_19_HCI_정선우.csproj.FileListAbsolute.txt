@@ -1,7 +1,0 @@
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\obj\Debug\2019_09_19_HCI_정선우.csprojAssemblyReference.cache
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\obj\Debug\2019_09_19_HCI_정선우.csproj.CoreCompileInputs.cache
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\bin\Debug\2019_09_19_HCI_정선우.exe.config
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\bin\Debug\2019_09_19_HCI_정선우.exe
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\bin\Debug\2019_09_19_HCI_정선우.pdb
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\obj\Debug\2019_09_19_HCI_정선우.exe
-C:\Users\kanad\Desktop\C#\2019_09_19_HCI_정선우\2019_09_19_HCI_정선우\obj\Debug\2019_09_19_HCI_정선우.pdb
