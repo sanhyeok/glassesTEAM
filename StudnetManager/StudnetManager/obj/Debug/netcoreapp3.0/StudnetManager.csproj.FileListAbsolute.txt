@@ -1,0 +1,22 @@
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.exe
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.deps.json
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.runtimeconfig.json
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.runtimeconfig.dev.json
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.dll
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.pdb
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.csprojAssemblyReference.cache
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.AssemblyInfoInputs.cache
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.AssemblyInfo.cs
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.dll
+E:\학교\2019년 2학기\HCI\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.pdb
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.exe
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.deps.json
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.runtimeconfig.json
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.runtimeconfig.dev.json
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.dll
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\bin\Debug\netcoreapp3.0\StudnetManager.pdb
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.csprojAssemblyReference.cache
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.AssemblyInfoInputs.cache
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.AssemblyInfo.cs
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.dll
+C:\Users\user\Documents\GitHub\glassesTEAM\HCI_4TEAM_5weeks\StudnetManager\StudnetManager\obj\Debug\netcoreapp3.0\StudnetManager.pdb
