@@ -38,12 +38,9 @@ public class changesecen : MonoBehaviour
     void Update()
     {
         if (Vector3.Distance(this.transform.position, dest.transform.position) < 10)  // 목적지에 다다르면
-        {   
-            if (Scene_index == 0)
-                Scene_index = 1;
-            else
-                Scene_index = 0;
-            LoadScene(Scene_index);
-        }// 추후 메인에서 씬 빌드하고 다시 설정
+        {
+            Scene_index++; // 다음 씬의 인덱스를 저장하고
+            LoadScene(Scene_index); // 다음 씬을 불러온다.
+        }
     }
 }
