@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemControll : MonoBehaviour
 {
     public GameObject Character;
-    public GameObject Camera;
     public float InteractiveDistance = 5;
     public string buttonkey = "Jump";           //아이템 장착 버튼
     private bool IsUsed = false;
@@ -30,7 +29,7 @@ public class ItemControll : MonoBehaviour
             if (Input.GetButtonDown(buttonkey) == true)
             {
                 IsUsed = false;
-                this.transform.position += new Vector3(0, 2, 1);
+                this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);     //속도 초기화
             }
         }
     }
@@ -40,8 +39,8 @@ public class ItemControll : MonoBehaviour
     {
         if (IsUsed == true)
         {
+            this.transform.position = Character.transform.position;
             this.transform.rotation = Character.transform.rotation;
-            this.transform.position = Character.transform.position + new Vector3(Camera.transform.rotation.eulerAngles.normalized.x*2, Camera.transform.rotation.eulerAngles.normalized.y * 2, Camera.transform.rotation.eulerAngles.normalized.z * 2);
         }
     }
 }

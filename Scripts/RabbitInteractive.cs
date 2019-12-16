@@ -16,7 +16,7 @@ public class RabbitInteractive : MonoBehaviour
     public float InDistance = 5;           //접근 거리
     public float OutDistance = 7;          //도망 거리
     public float InteractiveDistance = 1;  //상호작용 거리
-    public float DistanceOfKeeping = 3;    //아이템을 가지고 있는지 판단하는 거리
+    public float DistanceOfKeeping = 2;    //아이템을 가지고 있는지 판단하는 거리
     private bool IsRunAway = false;        //도망 여부
     private bool IsTrace = false;          //아이템 여부
     private bool IsInteractive = false;         //상호작용 여부
@@ -34,40 +34,40 @@ public class RabbitInteractive : MonoBehaviour
     //조건 충족시 한번씩 실행
     private void FixedUpdate()
     {
-        if (Vector3.Distance(Item.transform.position, this.transform.position) <= InteractiveDistance || (Vector3.Distance(Item.transform.position, Player.transform.position) <= DistanceOfKeeping && Vector3.Distance(Player.transform.position, this.transform.position) <= InteractiveDistance))
-        {       //아이템과 상호작용 거리 내에 있을 시, 또 플레이어가 아이템을 소지하고 있을 경우 플레이어와 상호작용 거리 내에 있을 시, 상호작용을 한다.
+        if (Vector3.Distance(Item.transform.position, this.transform.position) <= InteractiveDistance)
+        {       //아이템과 상호작용 거리 내에 있을 시, 상호작용을 한다.
+            this.GetComponent<Animator>().SetBool("IsRun", false);        //애니메이션 변경 (멈춤)
+            this.GetComponent<Animator>().SetBool("IsInteractive", true);      //애니메이션 변경 (먹기)
             IsRunAway = false;      //도망 여부
             IsTrace = false;        //추격 여부
             IsInteractive = true;        //상호작용 여부
-            this.GetComponent<Animator>().SetBool("IsRun", false);        //애니메이션 변경 (멈춤)
-            this.GetComponent<Animator>().SetBool("IsInteractive", true);      //애니메이션 변경 (먹기)
             return;
         }
         if (Vector3.Distance(Item.transform.position, this.transform.position) <= InDistance)       //아이템에 가까워지면 다가온다.
         {
+            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
+            this.GetComponent<Animator>().SetBool("IsRun", true);        //애니메이션 변경 (달리기)
             IsRunAway = false;      //도망 여부
             IsTrace = true;         //추격 여부
             IsInteractive = false;       //상호작용 여부
-            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
-            this.GetComponent<Animator>().SetBool("IsRun", true);        //애니메이션 변경 (달리기)
             return;
         }
         if (Vector3.Distance(Player.transform.position, this.transform.position) <= InDistance && Vector3.Distance(Player.transform.position, Item.transform.position) > DistanceOfKeeping)
         {       //플레이어가 다가오면 도망간다, 아이템을 소지하고 있다면 도망가지 않는다.
+            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
+            this.GetComponent<Animator>().SetBool("IsRun", true);        //애니메이션 변경 (달리기)
             IsRunAway = true;       //도망 여부
             IsTrace = false;        //추격 여부
             IsInteractive = false;       //상호작용 여부
-            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
-            this.GetComponent<Animator>().SetBool("IsRun", true);        //애니메이션 변경 (달리기)
             return;
         }
         if (Vector3.Distance(Player.transform.position, this.transform.position) >= OutDistance && Vector3.Distance(Item.transform.position, this.transform.position) >= OutDistance)
         {       //아이템도 플레이어도 근처에 없을 시 멈춰있는다.
+            this.GetComponent<Animator>().SetBool("IsRun", false);        //애니메이션 변경 (멈춤)
+            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
             IsRunAway = false;      //도망 여부
             IsTrace = false;        //추격 여부
             IsInteractive = false;       //상호작용 여부
-            this.GetComponent<Animator>().SetBool("IsRun", false);        //애니메이션 변경 (멈춤)
-            this.GetComponent<Animator>().SetBool("IsInteractive", false);    //애니메이션 변경 (멈춤)
             return;
         }
     }
@@ -97,7 +97,8 @@ public class RabbitInteractive : MonoBehaviour
         }
         else
         {
-
+            Vector3 dir = new Vector3(Item.transform.position.x, this.transform.position.y, Item.transform.position.z);     //수직방향 고정
+            this.transform.LookAt(dir);     //쳐다보기
         }
     }
 }
