@@ -13,6 +13,7 @@ public class AutoMove : MonoBehaviour
     public int currentNode = 0;     //현재 목적지. 값을 입력할 경우 그 waypoint를 첫 목적지로 삼습니다.
     public List<Transform> waypoint = new List<Transform>();  //위치정보를 가지고 있는 리스트 선언.
     public float moveSpeed = 3;     //이동속도
+    public float InNodeDistance = 3;     //이동속도
     public bool XZFreezing = true;  //xz방향 고정 여부
     public bool roundTrip = true;   //왕복 여부
     private Transform me;           //임시 방향
@@ -43,7 +44,7 @@ public class AutoMove : MonoBehaviour
     {
         if (currentNode == waypoint.Count && roundTrip == true)  //마지막 노드(웨이포인트)로 도착하였을 때는 초기화 시켜준다.
             currentNode = 0;                //(여기선 처음 노드로 초기화하여 반복 이동시킴, 사용에 따라 편도이동 할 수 있음)
-        if (Vector3.Distance(this.transform.position, waypoint[currentNode].position) <= 2)      //목적지 도착시
+        if (Vector3.Distance(this.transform.position, waypoint[currentNode].position) <= InNodeDistance)      //목적지 도착시
         {
             GotoNext();     //목적지까지의 거리가 1이하(도착)면 함수실행 -> 다음 목적지를 설정함
         }
